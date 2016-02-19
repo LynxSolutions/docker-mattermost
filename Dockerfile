@@ -9,7 +9,8 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Copy over files
-RUN wget https://github.com/mattermost/platform/releases/download/v2.0.0/mattermost.tar.gz \
+RUN cd / \
+	&& wget https://github.com/mattermost/platform/releases/download/v2.0.0/mattermost.tar.gz \
 	&& tar -zxvf /mattermost.tar.gz --strip-components=1 && rm /mattermost.tar.gz
 
 WORKDIR /mattermost
